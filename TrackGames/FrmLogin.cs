@@ -19,6 +19,7 @@ namespace TrackGames
         private SqlConnection conexaoSQLServer;
         SqlCommand sqlCmd = default(SqlCommand);
         private string conexaoSQL = @"Data Source=CELESTIA\SQLEXPRESS;Initial Catalog = GameTracker; Integrated Security = True;";
+
         private int idUsuario = 0;
         #endregion
 
@@ -32,11 +33,11 @@ namespace TrackGames
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
 
             // Configure color schema
-            materialSkinManager.ColorScheme = new ColorScheme(
+            /*materialSkinManager.ColorScheme = new ColorScheme(
                 Primary.Blue400, Primary.Blue500,
                 Primary.Blue500, Accent.LightBlue200,
                 TextShade.WHITE
-            );
+            );*/
 
             conexaoSQLServer = new SqlConnection(conexaoSQL);
         }
@@ -56,7 +57,7 @@ namespace TrackGames
             {
                 try
                 {
-                    SqlCommand CmdSelect = new SqlCommand("SELECT id_usuario, senha_usuario FROM Usuario WHERE nome_usuario=@usuario", this.ConexaoSQLServer);
+                    SqlCommand CmdSelect = new SqlCommand("SELECT id_usuario, senha_usuario FROM Usuario WHERE nome_usuario=@usuario", this.conexaoSQLServer);
                     CmdSelect.Parameters.Add("@usuario", SqlDbType.VarChar);
                     CmdSelect.Parameters["@usuario"].Value = tbLogin.Text;
 
@@ -75,8 +76,8 @@ namespace TrackGames
 
                                     //login bem sucedido, abrir nova janela
                                     this.Hide();
-                                    //FrmGameTracker frmGameTracker = new FrmGameTracker(idUsuario);
-                                    //frmGameTracker.Show();
+                                    FrmPrincipal frmPrincipal = new FrmPrincipal(idUsuario);
+                                    frmPrincipal.Show();
                                 }
                                 else
                                 {

@@ -32,16 +32,17 @@
             this.mlblSenha = new MaterialSkin.Controls.MaterialLabel();
             this.tbLogin = new System.Windows.Forms.TextBox();
             this.tbSenha = new System.Windows.Forms.TextBox();
-            this.mbtnLogin = new MaterialSkin.Controls.MaterialFlatButton();
+            this.mbtnLogin = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
             // 
             // mlblLogin
             // 
             this.mlblLogin.AutoSize = true;
+            this.mlblLogin.BackColor = System.Drawing.Color.Transparent;
             this.mlblLogin.Depth = 0;
             this.mlblLogin.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblLogin.Location = new System.Drawing.Point(86, 118);
+            this.mlblLogin.Location = new System.Drawing.Point(86, 109);
             this.mlblLogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblLogin.Name = "mlblLogin";
             this.mlblLogin.Size = new System.Drawing.Size(50, 19);
@@ -51,10 +52,11 @@
             // mlblSenha
             // 
             this.mlblSenha.AutoSize = true;
+            this.mlblSenha.BackColor = System.Drawing.Color.Transparent;
             this.mlblSenha.Depth = 0;
             this.mlblSenha.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblSenha.Location = new System.Drawing.Point(86, 149);
+            this.mlblSenha.Location = new System.Drawing.Point(86, 140);
             this.mlblSenha.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblSenha.Name = "mlblSenha";
             this.mlblSenha.Size = new System.Drawing.Size(54, 19);
@@ -63,17 +65,21 @@
             // 
             // tbLogin
             // 
-            this.tbLogin.Location = new System.Drawing.Point(151, 116);
+            this.tbLogin.Font = new System.Drawing.Font("Roboto", 11F);
+            this.tbLogin.Location = new System.Drawing.Point(151, 107);
             this.tbLogin.Name = "tbLogin";
-            this.tbLogin.Size = new System.Drawing.Size(158, 21);
+            this.tbLogin.Size = new System.Drawing.Size(158, 25);
             this.tbLogin.TabIndex = 2;
             // 
             // tbSenha
             // 
-            this.tbSenha.Location = new System.Drawing.Point(151, 147);
+            this.tbSenha.Font = new System.Drawing.Font("Roboto", 11F);
+            this.tbSenha.Location = new System.Drawing.Point(151, 138);
             this.tbSenha.Name = "tbSenha";
-            this.tbSenha.Size = new System.Drawing.Size(158, 21);
+            this.tbSenha.PasswordChar = '*';
+            this.tbSenha.Size = new System.Drawing.Size(158, 25);
             this.tbSenha.TabIndex = 3;
+            this.tbSenha.UseSystemPasswordChar = true;
             this.tbSenha.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbSenha_KeyUp);
             // 
             // mbtnLogin
@@ -82,14 +88,13 @@
             this.mbtnLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mbtnLogin.Depth = 0;
             this.mbtnLogin.Icon = null;
-            this.mbtnLogin.Location = new System.Drawing.Point(172, 177);
-            this.mbtnLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mbtnLogin.Location = new System.Drawing.Point(170, 180);
             this.mbtnLogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnLogin.Name = "mbtnLogin";
-            this.mbtnLogin.Primary = false;
+            this.mbtnLogin.Primary = true;
             this.mbtnLogin.Size = new System.Drawing.Size(61, 36);
-            this.mbtnLogin.TabIndex = 4;
-            this.mbtnLogin.Text = "Login";
+            this.mbtnLogin.TabIndex = 5;
+            this.mbtnLogin.Text = "LOGIN";
             this.mbtnLogin.UseVisualStyleBackColor = true;
             this.mbtnLogin.Click += new System.EventHandler(this.mbtnLogin_Click);
             // 
@@ -97,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(400, 250);
             this.Controls.Add(this.mbtnLogin);
             this.Controls.Add(this.tbSenha);
@@ -123,6 +128,6 @@
         private MaterialSkin.Controls.MaterialLabel mlblSenha;
         private System.Windows.Forms.TextBox tbLogin;
         private System.Windows.Forms.TextBox tbSenha;
-        private MaterialSkin.Controls.MaterialFlatButton mbtnLogin;
+        private MaterialSkin.Controls.MaterialRaisedButton mbtnLogin;
     }
 }
