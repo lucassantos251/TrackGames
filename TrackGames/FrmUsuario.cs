@@ -71,11 +71,6 @@ namespace TrackGames
                             mlblUsuarioValor.Text = cmdReader["nome_usuario"].ToString();
                         }
 
-                        if (cmdReader["senha_usuario"].GetType().ToString() != "System.DBNull")
-                        {
-                            mlblSenhaValor.Text = cmdReader["senha_usuario"].ToString();
-                        }
-
                         if (cmdReader["qtd_jogados"].GetType().ToString() != "System.DBNull")
                         {
                             mlblJogosValor.Text = cmdReader["qtd_jogados"].ToString();
@@ -194,7 +189,7 @@ namespace TrackGames
             }
         }
 
-        private void alterarImagemUsuario()
+        /*private void alterarImagemUsuario()
         {
             try
             {
@@ -249,7 +244,7 @@ namespace TrackGames
             }
 
             resgatarImagemUsuario();
-        }
+        }*/
 
         private void atualizarDadosUsuario()
         {
@@ -334,10 +329,11 @@ namespace TrackGames
             }
         }
 
-
-        private void mbtnAlterarImagem_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
-            alterarImagemUsuario();
+            this.Hide();
+            FrmEditarUsuario frmEditarUsuario = new FrmEditarUsuario(idUsuario, this);
+            frmEditarUsuario.Show();
         }
     }
 }

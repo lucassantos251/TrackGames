@@ -34,6 +34,7 @@
             this.tbLogin = new System.Windows.Forms.TextBox();
             this.tbSenha = new System.Windows.Forms.TextBox();
             this.mbtnLogin = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnCriarUsuario = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mlblLogin
@@ -99,12 +100,26 @@
             this.mbtnLogin.UseVisualStyleBackColor = true;
             this.mbtnLogin.Click += new System.EventHandler(this.mbtnLogin_Click);
             // 
+            // btnCriarUsuario
+            // 
+            this.btnCriarUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.btnCriarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCriarUsuario.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCriarUsuario.Location = new System.Drawing.Point(306, 215);
+            this.btnCriarUsuario.Name = "btnCriarUsuario";
+            this.btnCriarUsuario.Size = new System.Drawing.Size(82, 23);
+            this.btnCriarUsuario.TabIndex = 6;
+            this.btnCriarUsuario.Text = "Criar Usuário";
+            this.btnCriarUsuario.UseVisualStyleBackColor = false;
+            this.btnCriarUsuario.Click += new System.EventHandler(this.btnCriarUsuario_Click);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(400, 250);
+            this.Controls.Add(this.btnCriarUsuario);
             this.Controls.Add(this.mbtnLogin);
             this.Controls.Add(this.tbSenha);
             this.Controls.Add(this.tbLogin);
@@ -131,5 +146,6 @@
         private System.Windows.Forms.TextBox tbLogin;
         private System.Windows.Forms.TextBox tbSenha;
         private MaterialSkin.Controls.MaterialRaisedButton mbtnLogin;
+        private System.Windows.Forms.Button btnCriarUsuario;
     }
 }

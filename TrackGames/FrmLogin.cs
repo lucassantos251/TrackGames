@@ -115,5 +115,12 @@ namespace TrackGames
                 Login();
             }
         }
+
+        private void btnCriarUsuario_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmCriarUsuario frmCriarUsuario = new FrmCriarUsuario(this);
+            frmCriarUsuario.Show();
+        }
     }
 }

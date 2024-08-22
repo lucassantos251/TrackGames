@@ -32,8 +32,6 @@
             this.pbUsuario = new System.Windows.Forms.PictureBox();
             this.mlblUsuario = new MaterialSkin.Controls.MaterialLabel();
             this.mlblUsuarioValor = new MaterialSkin.Controls.MaterialLabel();
-            this.mlblSenhaValor = new MaterialSkin.Controls.MaterialLabel();
-            this.mlblSenha = new MaterialSkin.Controls.MaterialLabel();
             this.mlblJogosValor = new MaterialSkin.Controls.MaterialLabel();
             this.mlblJogos = new MaterialSkin.Controls.MaterialLabel();
             this.mlblFinalizadosValor = new MaterialSkin.Controls.MaterialLabel();
@@ -46,8 +44,7 @@
             this.mlblPlataforma3 = new MaterialSkin.Controls.MaterialLabel();
             this.mlblPlataforma4 = new MaterialSkin.Controls.MaterialLabel();
             this.mlblPlataforma5 = new MaterialSkin.Controls.MaterialLabel();
-            this.mbtnAlterarImagem = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.fdImagem = new System.Windows.Forms.OpenFileDialog();
+            this.btnEditar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mlblIDValor = new MaterialSkin.Controls.MaterialLabel();
             this.mlblID = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).BeginInit();
@@ -55,7 +52,7 @@
             // 
             // pbUsuario
             // 
-            this.pbUsuario.Location = new System.Drawing.Point(10, 73);
+            this.pbUsuario.Location = new System.Drawing.Point(144, 88);
             this.pbUsuario.Name = "pbUsuario";
             this.pbUsuario.Size = new System.Drawing.Size(175, 175);
             this.pbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -68,7 +65,7 @@
             this.mlblUsuario.Depth = 0;
             this.mlblUsuario.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblUsuario.Location = new System.Drawing.Point(220, 115);
+            this.mlblUsuario.Location = new System.Drawing.Point(44, 349);
             this.mlblUsuario.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblUsuario.Name = "mlblUsuario";
             this.mlblUsuario.Size = new System.Drawing.Size(65, 19);
@@ -81,38 +78,12 @@
             this.mlblUsuarioValor.Depth = 0;
             this.mlblUsuarioValor.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblUsuarioValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblUsuarioValor.Location = new System.Drawing.Point(238, 134);
+            this.mlblUsuarioValor.Location = new System.Drawing.Point(62, 368);
             this.mlblUsuarioValor.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblUsuarioValor.Name = "mlblUsuarioValor";
             this.mlblUsuarioValor.Size = new System.Drawing.Size(137, 19);
             this.mlblUsuarioValor.TabIndex = 2;
             this.mlblUsuarioValor.Text = "\"Nome do Usuário\"";
-            // 
-            // mlblSenhaValor
-            // 
-            this.mlblSenhaValor.AutoSize = true;
-            this.mlblSenhaValor.Depth = 0;
-            this.mlblSenhaValor.Font = new System.Drawing.Font("Roboto", 11F);
-            this.mlblSenhaValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblSenhaValor.Location = new System.Drawing.Point(238, 176);
-            this.mlblSenhaValor.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mlblSenhaValor.Name = "mlblSenhaValor";
-            this.mlblSenhaValor.Size = new System.Drawing.Size(137, 19);
-            this.mlblSenhaValor.TabIndex = 4;
-            this.mlblSenhaValor.Text = "\"Senha do Usuário\"";
-            // 
-            // mlblSenha
-            // 
-            this.mlblSenha.AutoSize = true;
-            this.mlblSenha.Depth = 0;
-            this.mlblSenha.Font = new System.Drawing.Font("Roboto", 11F);
-            this.mlblSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblSenha.Location = new System.Drawing.Point(220, 157);
-            this.mlblSenha.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mlblSenha.Name = "mlblSenha";
-            this.mlblSenha.Size = new System.Drawing.Size(54, 19);
-            this.mlblSenha.TabIndex = 3;
-            this.mlblSenha.Text = "Senha:";
             // 
             // mlblJogosValor
             // 
@@ -120,7 +91,7 @@
             this.mlblJogosValor.Depth = 0;
             this.mlblJogosValor.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblJogosValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblJogosValor.Location = new System.Drawing.Point(238, 218);
+            this.mlblJogosValor.Location = new System.Drawing.Point(62, 413);
             this.mlblJogosValor.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblJogosValor.Name = "mlblJogosValor";
             this.mlblJogosValor.Size = new System.Drawing.Size(123, 19);
@@ -133,7 +104,7 @@
             this.mlblJogos.Depth = 0;
             this.mlblJogos.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblJogos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblJogos.Location = new System.Drawing.Point(220, 199);
+            this.mlblJogos.Location = new System.Drawing.Point(44, 394);
             this.mlblJogos.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblJogos.Name = "mlblJogos";
             this.mlblJogos.Size = new System.Drawing.Size(55, 19);
@@ -146,7 +117,7 @@
             this.mlblFinalizadosValor.Depth = 0;
             this.mlblFinalizadosValor.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblFinalizadosValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblFinalizadosValor.Location = new System.Drawing.Point(238, 262);
+            this.mlblFinalizadosValor.Location = new System.Drawing.Point(62, 457);
             this.mlblFinalizadosValor.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblFinalizadosValor.Name = "mlblFinalizadosValor";
             this.mlblFinalizadosValor.Size = new System.Drawing.Size(141, 19);
@@ -159,7 +130,7 @@
             this.mlblFinalizados.Depth = 0;
             this.mlblFinalizados.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblFinalizados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblFinalizados.Location = new System.Drawing.Point(220, 243);
+            this.mlblFinalizados.Location = new System.Drawing.Point(44, 438);
             this.mlblFinalizados.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblFinalizados.Name = "mlblFinalizados";
             this.mlblFinalizados.Size = new System.Drawing.Size(89, 19);
@@ -172,7 +143,7 @@
             this.mlblHorasValor.Depth = 0;
             this.mlblHorasValor.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblHorasValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblHorasValor.Location = new System.Drawing.Point(429, 92);
+            this.mlblHorasValor.Location = new System.Drawing.Point(283, 323);
             this.mlblHorasValor.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblHorasValor.Name = "mlblHorasValor";
             this.mlblHorasValor.Size = new System.Drawing.Size(121, 19);
@@ -185,7 +156,7 @@
             this.mlblHoras.Depth = 0;
             this.mlblHoras.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblHoras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblHoras.Location = new System.Drawing.Point(411, 73);
+            this.mlblHoras.Location = new System.Drawing.Point(265, 304);
             this.mlblHoras.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblHoras.Name = "mlblHoras";
             this.mlblHoras.Size = new System.Drawing.Size(119, 19);
@@ -198,7 +169,7 @@
             this.mlblPlataforma1.Depth = 0;
             this.mlblPlataforma1.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblPlataforma1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblPlataforma1.Location = new System.Drawing.Point(429, 144);
+            this.mlblPlataforma1.Location = new System.Drawing.Point(283, 375);
             this.mlblPlataforma1.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblPlataforma1.Name = "mlblPlataforma1";
             this.mlblPlataforma1.Size = new System.Drawing.Size(105, 19);
@@ -211,7 +182,7 @@
             this.mlblPlataformas.Depth = 0;
             this.mlblPlataformas.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblPlataformas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblPlataformas.Location = new System.Drawing.Point(411, 125);
+            this.mlblPlataformas.Location = new System.Drawing.Point(265, 356);
             this.mlblPlataformas.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblPlataformas.Name = "mlblPlataformas";
             this.mlblPlataformas.Size = new System.Drawing.Size(95, 19);
@@ -224,7 +195,7 @@
             this.mlblPlataforma2.Depth = 0;
             this.mlblPlataforma2.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblPlataforma2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblPlataforma2.Location = new System.Drawing.Point(429, 163);
+            this.mlblPlataforma2.Location = new System.Drawing.Point(283, 394);
             this.mlblPlataforma2.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblPlataforma2.Name = "mlblPlataforma2";
             this.mlblPlataforma2.Size = new System.Drawing.Size(105, 19);
@@ -237,7 +208,7 @@
             this.mlblPlataforma3.Depth = 0;
             this.mlblPlataforma3.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblPlataforma3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblPlataforma3.Location = new System.Drawing.Point(429, 182);
+            this.mlblPlataforma3.Location = new System.Drawing.Point(283, 413);
             this.mlblPlataforma3.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblPlataforma3.Name = "mlblPlataforma3";
             this.mlblPlataforma3.Size = new System.Drawing.Size(105, 19);
@@ -250,7 +221,7 @@
             this.mlblPlataforma4.Depth = 0;
             this.mlblPlataforma4.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblPlataforma4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblPlataforma4.Location = new System.Drawing.Point(429, 201);
+            this.mlblPlataforma4.Location = new System.Drawing.Point(283, 432);
             this.mlblPlataforma4.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblPlataforma4.Name = "mlblPlataforma4";
             this.mlblPlataforma4.Size = new System.Drawing.Size(105, 19);
@@ -263,32 +234,28 @@
             this.mlblPlataforma5.Depth = 0;
             this.mlblPlataforma5.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblPlataforma5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblPlataforma5.Location = new System.Drawing.Point(429, 220);
+            this.mlblPlataforma5.Location = new System.Drawing.Point(283, 451);
             this.mlblPlataforma5.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblPlataforma5.Name = "mlblPlataforma5";
             this.mlblPlataforma5.Size = new System.Drawing.Size(105, 19);
             this.mlblPlataforma5.TabIndex = 16;
             this.mlblPlataforma5.Text = "\"Plataforma 5\"";
             // 
-            // mbtnAlterarImagem
+            // btnEditar
             // 
-            this.mbtnAlterarImagem.AutoSize = true;
-            this.mbtnAlterarImagem.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbtnAlterarImagem.Depth = 0;
-            this.mbtnAlterarImagem.Icon = null;
-            this.mbtnAlterarImagem.Location = new System.Drawing.Point(28, 256);
-            this.mbtnAlterarImagem.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnAlterarImagem.Name = "mbtnAlterarImagem";
-            this.mbtnAlterarImagem.Primary = true;
-            this.mbtnAlterarImagem.Size = new System.Drawing.Size(137, 36);
-            this.mbtnAlterarImagem.TabIndex = 17;
-            this.mbtnAlterarImagem.Text = "Alterar Imagem";
-            this.mbtnAlterarImagem.UseVisualStyleBackColor = true;
-            this.mbtnAlterarImagem.Click += new System.EventHandler(this.mbtnAlterarImagem_Click);
-            // 
-            // fdImagem
-            // 
-            this.fdImagem.FileName = "fdImagem";
+            this.btnEditar.AutoSize = true;
+            this.btnEditar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnEditar.Depth = 0;
+            this.btnEditar.Icon = null;
+            this.btnEditar.Location = new System.Drawing.Point(163, 552);
+            this.btnEditar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Primary = true;
+            this.btnEditar.Size = new System.Drawing.Size(128, 36);
+            this.btnEditar.TabIndex = 17;
+            this.btnEditar.Text = "Editar Usuario";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // mlblIDValor
             // 
@@ -296,7 +263,7 @@
             this.mlblIDValor.Depth = 0;
             this.mlblIDValor.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblIDValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblIDValor.Location = new System.Drawing.Point(238, 89);
+            this.mlblIDValor.Location = new System.Drawing.Point(62, 323);
             this.mlblIDValor.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblIDValor.Name = "mlblIDValor";
             this.mlblIDValor.Size = new System.Drawing.Size(110, 19);
@@ -309,7 +276,7 @@
             this.mlblID.Depth = 0;
             this.mlblID.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblID.Location = new System.Drawing.Point(220, 70);
+            this.mlblID.Location = new System.Drawing.Point(44, 304);
             this.mlblID.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblID.Name = "mlblID";
             this.mlblID.Size = new System.Drawing.Size(27, 19);
@@ -320,10 +287,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 300);
+            this.ClientSize = new System.Drawing.Size(450, 600);
             this.Controls.Add(this.mlblIDValor);
             this.Controls.Add(this.mlblID);
-            this.Controls.Add(this.mbtnAlterarImagem);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.mlblPlataforma5);
             this.Controls.Add(this.mlblPlataforma4);
             this.Controls.Add(this.mlblPlataforma3);
@@ -336,8 +303,6 @@
             this.Controls.Add(this.mlblFinalizados);
             this.Controls.Add(this.mlblJogosValor);
             this.Controls.Add(this.mlblJogos);
-            this.Controls.Add(this.mlblSenhaValor);
-            this.Controls.Add(this.mlblSenha);
             this.Controls.Add(this.mlblUsuarioValor);
             this.Controls.Add(this.mlblUsuario);
             this.Controls.Add(this.pbUsuario);
@@ -359,8 +324,6 @@
         private System.Windows.Forms.PictureBox pbUsuario;
         private MaterialSkin.Controls.MaterialLabel mlblUsuario;
         private MaterialSkin.Controls.MaterialLabel mlblUsuarioValor;
-        private MaterialSkin.Controls.MaterialLabel mlblSenhaValor;
-        private MaterialSkin.Controls.MaterialLabel mlblSenha;
         private MaterialSkin.Controls.MaterialLabel mlblJogosValor;
         private MaterialSkin.Controls.MaterialLabel mlblJogos;
         private MaterialSkin.Controls.MaterialLabel mlblFinalizadosValor;
@@ -373,8 +336,7 @@
         private MaterialSkin.Controls.MaterialLabel mlblPlataforma3;
         private MaterialSkin.Controls.MaterialLabel mlblPlataforma4;
         private MaterialSkin.Controls.MaterialLabel mlblPlataforma5;
-        private MaterialSkin.Controls.MaterialRaisedButton mbtnAlterarImagem;
-        private System.Windows.Forms.OpenFileDialog fdImagem;
+        private MaterialSkin.Controls.MaterialRaisedButton btnEditar;
         private MaterialSkin.Controls.MaterialLabel mlblIDValor;
         private MaterialSkin.Controls.MaterialLabel mlblID;
     }

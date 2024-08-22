@@ -49,11 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCriarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCriarUsuario.Designer.cs">
+      <DependentUpon>FrmCriarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEditar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmEditar.Designer.cs">
       <DependentUpon>FrmEditar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEditarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditarUsuario.Designer.cs">
+      <DependentUpon>FrmEditarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -80,8 +92,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCriarUsuario.resx">
+      <DependentUpon>FrmCriarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEditar.resx">
       <DependentUpon>FrmEditar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditarUsuario.resx">
+      <DependentUpon>FrmEditarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -100,6 +118,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="GameTrackerDataSet.xsc">
       <DependentUpon>GameTrackerDataSet.xsd</DependentUpon>
@@ -125,6 +144,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\olho.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
