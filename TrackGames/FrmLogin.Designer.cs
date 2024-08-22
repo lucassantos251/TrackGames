@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.mlblLogin = new MaterialSkin.Controls.MaterialLabel();
             this.mlblSenha = new MaterialSkin.Controls.MaterialLabel();
             this.tbLogin = new System.Windows.Forms.TextBox();
@@ -110,6 +111,7 @@
             this.Controls.Add(this.mlblSenha);
             this.Controls.Add(this.mlblLogin);
             this.Font = new System.Drawing.Font("Unispace", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

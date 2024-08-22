@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.pbUsuario = new System.Windows.Forms.PictureBox();
             this.gameBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gameTrackerDataSet = new TrackGames.GameTrackerDataSet();
@@ -71,6 +72,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTrackerDataSet)).BeginInit();
@@ -279,7 +281,6 @@
             // 
             // mlblNomeValor
             // 
-            this.mlblNomeValor.AutoSize = true;
             this.mlblNomeValor.BackColor = System.Drawing.Color.Transparent;
             this.mlblNomeValor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.gameBindingSource, "nome_game", true));
             this.mlblNomeValor.Depth = 0;
@@ -288,7 +289,7 @@
             this.mlblNomeValor.Location = new System.Drawing.Point(184, 344);
             this.mlblNomeValor.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblNomeValor.Name = "mlblNomeValor";
-            this.mlblNomeValor.Size = new System.Drawing.Size(119, 19);
+            this.mlblNomeValor.Size = new System.Drawing.Size(195, 38);
             this.mlblNomeValor.TabIndex = 1;
             this.mlblNomeValor.Text = "\"Nome do Jogo\"";
             // 
@@ -329,10 +330,10 @@
             this.mlblDescricaoValor.Depth = 0;
             this.mlblDescricaoValor.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblDescricaoValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblDescricaoValor.Location = new System.Drawing.Point(560, 344);
+            this.mlblDescricaoValor.Location = new System.Drawing.Point(552, 344);
             this.mlblDescricaoValor.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblDescricaoValor.Name = "mlblDescricaoValor";
-            this.mlblDescricaoValor.Size = new System.Drawing.Size(391, 188);
+            this.mlblDescricaoValor.Size = new System.Drawing.Size(401, 191);
             this.mlblDescricaoValor.TabIndex = 4;
             this.mlblDescricaoValor.Text = "\"Descrição\"";
             // 
@@ -445,7 +446,7 @@
             this.mlblDescricao.Depth = 0;
             this.mlblDescricao.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblDescricao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblDescricao.Location = new System.Drawing.Point(550, 322);
+            this.mlblDescricao.Location = new System.Drawing.Point(542, 322);
             this.mlblDescricao.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblDescricao.Name = "mlblDescricao";
             this.mlblDescricao.Size = new System.Drawing.Size(77, 19);
@@ -538,6 +539,7 @@
             this.btnEditar.TabIndex = 21;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnUsuario
             // 
@@ -547,6 +549,7 @@
             this.btnUsuario.TabIndex = 22;
             this.btnUsuario.Text = "Usuário";
             this.btnUsuario.UseVisualStyleBackColor = true;
+            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
             // btnAtualizar
             // 
@@ -558,11 +561,22 @@
             this.btnAtualizar.UseVisualStyleBackColor = true;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
+            // btnSair
+            // 
+            this.btnSair.Location = new System.Drawing.Point(373, 32);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 23);
+            this.btnSair.TabIndex = 24;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 544);
+            this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnUsuario);
             this.Controls.Add(this.btnEditar);
@@ -587,11 +601,13 @@
             this.Controls.Add(this.mlblDescricaoValor);
             this.Controls.Add(this.mlblAno);
             this.Controls.Add(this.mlblJogo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrackGames";
+            this.Activated += new System.EventHandler(this.btnAtualizar_Click);
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameBindingSource)).EndInit();
@@ -647,5 +663,6 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnUsuario;
         private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.Button btnSair;
     }
 }

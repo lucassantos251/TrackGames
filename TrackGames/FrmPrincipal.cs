@@ -47,7 +47,7 @@ namespace TrackGames
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'gameTrackerDataSet.Game'. Você pode movê-la ou removê-la conforme necessário.
-            this.gameTableAdapter.FillByID(this.gameTrackerDataSet.Game, this.idUsuario);
+            RecarregarDGV();
 
             conexaoSQLServer = new SqlConnection(conexaoSQL);
             ResgatarDadosUsuario(conexaoSQLServer);
@@ -102,6 +102,7 @@ namespace TrackGames
         private void RecarregarDGV()
         {
             this.gameTableAdapter.FillByID(this.gameTrackerDataSet.Game, this.idUsuario);
+            dgvPrincipal.Sort(this.dgvPrincipal.Columns[1], ListSortDirection.Ascending);
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
@@ -112,6 +113,27 @@ namespace TrackGames
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             RecarregarDGV();
+            ResgatarDadosUsuario(this.conexaoSQLServer);
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.Show();
+            this.Close();
+        }
+
+        private void btnUsuario_Click(object sender, EventArgs e)
+        {
+            FrmUsuario frmUsuario = new FrmUsuario(idUsuario);
+            frmUsuario.Show();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            FrmEditar frmEditar = new FrmEditar(idUsuario, this);
+            frmEditar.Show();
+            this.Hide();
         }
     }
 }
