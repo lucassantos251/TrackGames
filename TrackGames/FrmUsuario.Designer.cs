@@ -245,6 +245,7 @@
             // 
             this.btnEditar.AutoSize = true;
             this.btnEditar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditar.Depth = 0;
             this.btnEditar.Icon = null;
             this.btnEditar.Location = new System.Drawing.Point(163, 552);
@@ -312,6 +313,7 @@
             this.Name = "FrmUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrackGames - Usuário";
+            this.Activated += new System.EventHandler(this.FrmUsuario_Activated);
             this.Load += new System.EventHandler(this.FrmUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).EndInit();
             this.ResumeLayout(false);

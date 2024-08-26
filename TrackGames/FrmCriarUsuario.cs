@@ -149,8 +149,17 @@ namespace TrackGames
                 this.sqlCmd.Parameters.Add("@senha", System.Data.SqlDbType.VarChar);
                 this.sqlCmd.Parameters["@senha"].Value = (string)tbSenha.Text;
 
-                this.sqlCmd.Parameters.Add("@imagem", System.Data.SqlDbType.Image);
-                this.sqlCmd.Parameters["@imagem"].Value = this.vetorImagens;
+                if (vetorImagens != null)
+                {
+                    this.sqlCmd.Parameters.Add("@imagem", System.Data.SqlDbType.Image);
+                    this.sqlCmd.Parameters["@imagem"].Value = this.vetorImagens;
+                }
+                else
+                {
+                    this.sqlCmd.Parameters.Add("@imagem", System.Data.SqlDbType.Image);
+                    this.sqlCmd.Parameters["@imagem"].Value = (System.DBNull)DBNull.Value;
+                }
+
 
                 this.sqlCmd.Parameters.Add("@plataforma1", System.Data.SqlDbType.VarChar);
                 this.sqlCmd.Parameters["@plataforma1"].Value = (string)tbPlataforma1.Text;

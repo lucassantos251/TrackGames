@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
-            this.pbUsuario = new System.Windows.Forms.PictureBox();
             this.gameBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gameTrackerDataSet = new TrackGames.GameTrackerDataSet();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -51,7 +50,6 @@
             this.capagameDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnFechar = new System.Windows.Forms.Button();
             this.gameTableAdapter = new TrackGames.GameTrackerDataSetTableAdapters.GameTableAdapter();
-            this.pbJogo = new System.Windows.Forms.PictureBox();
             this.mlblNomeValor = new MaterialSkin.Controls.MaterialLabel();
             this.mlblAnoValor = new MaterialSkin.Controls.MaterialLabel();
             this.mlblPlataformaValor1 = new MaterialSkin.Controls.MaterialLabel();
@@ -69,27 +67,20 @@
             this.mcbJogou = new MaterialSkin.Controls.MaterialCheckBox();
             this.mcbFinalizou = new MaterialSkin.Controls.MaterialCheckBox();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnUsuario = new System.Windows.Forms.Button();
-            this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).BeginInit();
+            this.btnAtualizar = new System.Windows.Forms.Button();
+            this.btnUsuario = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.pbUsuario = new System.Windows.Forms.PictureBox();
+            this.pbJogo = new System.Windows.Forms.PictureBox();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gameBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTrackerDataSet)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrincipal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbJogo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pbUsuario
-            // 
-            this.pbUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.pbUsuario.Location = new System.Drawing.Point(921, 24);
-            this.pbUsuario.Name = "pbUsuario";
-            this.pbUsuario.Size = new System.Drawing.Size(39, 39);
-            this.pbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbUsuario.TabIndex = 1;
-            this.pbUsuario.TabStop = false;
             // 
             // gameBindingSource
             // 
@@ -255,6 +246,7 @@
             // btnFechar
             // 
             this.btnFechar.BackColor = System.Drawing.Color.Transparent;
+            this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFechar.FlatAppearance.BorderSize = 0;
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -268,16 +260,6 @@
             // gameTableAdapter
             // 
             this.gameTableAdapter.ClearBeforeFill = true;
-            // 
-            // pbJogo
-            // 
-            this.pbJogo.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.gameBindingSource, "capa_game", true));
-            this.pbJogo.Location = new System.Drawing.Point(6, 320);
-            this.pbJogo.Name = "pbJogo";
-            this.pbJogo.Size = new System.Drawing.Size(158, 215);
-            this.pbJogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbJogo.TabIndex = 0;
-            this.pbJogo.TabStop = false;
             // 
             // mlblNomeValor
             // 
@@ -463,9 +445,9 @@
             this.mlblDuracao.Location = new System.Drawing.Point(169, 432);
             this.mlblDuracao.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblDuracao.Name = "mlblDuracao";
-            this.mlblDuracao.Size = new System.Drawing.Size(65, 19);
+            this.mlblDuracao.Size = new System.Drawing.Size(120, 19);
             this.mlblDuracao.TabIndex = 13;
-            this.mlblDuracao.Text = "Duração";
+            this.mlblDuracao.Text = "Duração (Horas)";
             // 
             // mlblDuracaoValor
             // 
@@ -488,6 +470,7 @@
             this.mcbJogou.BackColor = System.Drawing.Color.Transparent;
             this.mcbJogou.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.gameBindingSource, "usuario_jogou", true));
             this.mcbJogou.Depth = 0;
+            this.mcbJogou.Enabled = false;
             this.mcbJogou.Font = new System.Drawing.Font("Roboto", 10F);
             this.mcbJogou.Location = new System.Drawing.Point(173, 500);
             this.mcbJogou.Margin = new System.Windows.Forms.Padding(0);
@@ -506,6 +489,7 @@
             this.mcbFinalizou.BackColor = System.Drawing.Color.Transparent;
             this.mcbFinalizou.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.gameBindingSource, "usuario_finalizou", true));
             this.mcbFinalizou.Depth = 0;
+            this.mcbFinalizou.Enabled = false;
             this.mcbFinalizou.Font = new System.Drawing.Font("Roboto", 10F);
             this.mcbFinalizou.Location = new System.Drawing.Point(378, 500);
             this.mcbFinalizou.Margin = new System.Windows.Forms.Padding(0);
@@ -531,45 +515,89 @@
             this.lblUsuario.Text = "\"Usuario\"";
             this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnEditar
+            // btnSair
             // 
-            this.btnEditar.Location = new System.Drawing.Point(130, 32);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 21;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnUsuario
-            // 
-            this.btnUsuario.Location = new System.Drawing.Point(211, 32);
-            this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Size = new System.Drawing.Size(75, 23);
-            this.btnUsuario.TabIndex = 22;
-            this.btnUsuario.Text = "Usuário";
-            this.btnUsuario.UseVisualStyleBackColor = true;
-            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
+            this.btnSair.BackColor = System.Drawing.Color.Transparent;
+            this.btnSair.BackgroundImage = global::TrackGames.Properties.Resources.sair32;
+            this.btnSair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSair.FlatAppearance.BorderSize = 0;
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.Location = new System.Drawing.Point(777, 28);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(32, 32);
+            this.btnSair.TabIndex = 24;
+            this.toolTip.SetToolTip(this.btnSair, "Sair");
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.Location = new System.Drawing.Point(292, 32);
+            this.btnAtualizar.BackColor = System.Drawing.Color.Transparent;
+            this.btnAtualizar.BackgroundImage = global::TrackGames.Properties.Resources.atualizar32;
+            this.btnAtualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAtualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtualizar.FlatAppearance.BorderSize = 0;
+            this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtualizar.Location = new System.Drawing.Point(157, 27);
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnAtualizar.Size = new System.Drawing.Size(32, 32);
             this.btnAtualizar.TabIndex = 23;
-            this.btnAtualizar.Text = "Atualizar";
-            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.toolTip.SetToolTip(this.btnAtualizar, "Atualizar");
+            this.btnAtualizar.UseVisualStyleBackColor = false;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
-            // btnSair
+            // btnUsuario
             // 
-            this.btnSair.Location = new System.Drawing.Point(373, 32);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 23);
-            this.btnSair.TabIndex = 24;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            this.btnUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.btnUsuario.BackgroundImage = global::TrackGames.Properties.Resources.usuario32;
+            this.btnUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUsuario.FlatAppearance.BorderSize = 0;
+            this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuario.Location = new System.Drawing.Point(815, 28);
+            this.btnUsuario.Name = "btnUsuario";
+            this.btnUsuario.Size = new System.Drawing.Size(32, 32);
+            this.btnUsuario.TabIndex = 22;
+            this.toolTip.SetToolTip(this.btnUsuario, "Usuário");
+            this.btnUsuario.UseVisualStyleBackColor = false;
+            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.BackColor = System.Drawing.Color.Transparent;
+            this.btnEditar.BackgroundImage = global::TrackGames.Properties.Resources.editar32;
+            this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Location = new System.Drawing.Point(119, 27);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(32, 32);
+            this.btnEditar.TabIndex = 21;
+            this.toolTip.SetToolTip(this.btnEditar, "Editar");
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // pbUsuario
+            // 
+            this.pbUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.pbUsuario.Location = new System.Drawing.Point(921, 24);
+            this.pbUsuario.Name = "pbUsuario";
+            this.pbUsuario.Size = new System.Drawing.Size(39, 39);
+            this.pbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbUsuario.TabIndex = 1;
+            this.pbUsuario.TabStop = false;
+            // 
+            // pbJogo
+            // 
+            this.pbJogo.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.gameBindingSource, "capa_game", true));
+            this.pbJogo.Location = new System.Drawing.Point(6, 320);
+            this.pbJogo.Name = "pbJogo";
+            this.pbJogo.Size = new System.Drawing.Size(158, 215);
+            this.pbJogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbJogo.TabIndex = 0;
+            this.pbJogo.TabStop = false;
             // 
             // FrmPrincipal
             // 
@@ -609,11 +637,11 @@
             this.Text = "TrackGames";
             this.Activated += new System.EventHandler(this.btnAtualizar_Click);
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTrackerDataSet)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrincipal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbJogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -664,5 +692,6 @@
         private System.Windows.Forms.Button btnUsuario;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }

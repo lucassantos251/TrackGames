@@ -72,6 +72,28 @@ namespace TrackGames
             }
         }
 
+        private void pesquisar(SqlConnection conexaoSQLServer)
+        {
+            try
+            {
+                SqlDataAdapter ADAP = new SqlDataAdapter("SELECT * FROM Game WHERE fk_usuario=@ID AND nome_game LIKE @nome", conexaoSQLServer);
+                ADAP.SelectCommand.Parameters.AddWithValue("@ID", (int)idUsuario);
+                ADAP.SelectCommand.Parameters.AddWithValue("@nome", (string)"%" + tbPesquisar.Text + "%");
+                DataSet DS = new DataSet();
+                ADAP.Fill(DS, "Game");
+                dgvEditar.DataSource = DS.Tables["Game"];
+                dgvEditar.Sort(this.dgvEditar.Columns[1], ListSortDirection.Ascending);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Comunicação com o Banco de Dados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.conexaoSQLServer.Close();
+            }
+        }
+
         private void dgvEditar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -102,8 +124,210 @@ namespace TrackGames
                 return;
             }
 
+            if(tbID.Text == "")
+            {
+                btnAdicionarEditar.Text = "ADICIONAR";
+            }
+            else
+            {
+                btnAdicionarEditar.Text = "EDITAR";
+            }
+
             resgatarNomeUsuario();
             resgatarImagemJogo();
+        }
+
+        private void editarInserirDados(string escolha)
+        {
+            if (escolha == "EDITAR")
+            {
+                bool erro = verificacaoDeCampos(1);
+
+                if (erro == true)
+                    return;
+
+                try
+                {
+                    this.conexaoSQLServer.Open();
+                    this.sqlCmd = new SqlCommand();
+                    sqlCmd.Connection = conexaoSQLServer;
+                    if (sqlCmd.Parameters.Count == 0)
+                    {
+                        this.sqlCmd.CommandText = "UPDATE Game SET nome_game=@nome, ano_game=@ano, media_horas=@horas, plataforma1_game=@plataforma1, plataforma2_game=@plataforma2, plataforma3_game=@plataforma3, plataforma4_game=@plataforma4, plataforma5_game=@plataforma5, descricao_game=@descricao, fk_usuario=@usuario, usuario_jogou=@jogou, usuario_finalizou=@finalizou WHERE id_game=@ID";
+
+                        this.sqlCmd.Parameters.Add("@nome", System.Data.SqlDbType.VarChar);
+                        this.sqlCmd.Parameters["@nome"].Value = (string)tbJogo.Text;
+
+                        this.sqlCmd.Parameters.Add("@ano", System.Data.SqlDbType.Int);
+                        this.sqlCmd.Parameters["@ano"].Value = Convert.ToInt32(tbAno.Text);
+
+                        this.sqlCmd.Parameters.Add("@horas", System.Data.SqlDbType.Int);
+                        this.sqlCmd.Parameters["@horas"].Value = Convert.ToInt32(tbHoras.Text);
+
+                        this.sqlCmd.Parameters.Add("@plataforma1", System.Data.SqlDbType.VarChar);
+                        this.sqlCmd.Parameters["@plataforma1"].Value = (string)tbPlataforma1.Text;
+
+                        this.sqlCmd.Parameters.Add("@plataforma2", System.Data.SqlDbType.VarChar);
+                        this.sqlCmd.Parameters["@plataforma2"].Value = (string)tbPlataforma2.Text;
+
+                        this.sqlCmd.Parameters.Add("@plataforma3", System.Data.SqlDbType.VarChar);
+                        this.sqlCmd.Parameters["@plataforma3"].Value = (string)tbPlataforma3.Text;
+
+                        this.sqlCmd.Parameters.Add("@plataforma4", System.Data.SqlDbType.VarChar);
+                        this.sqlCmd.Parameters["@plataforma4"].Value = (string)tbPlataforma4.Text;
+
+                        this.sqlCmd.Parameters.Add("@plataforma5", System.Data.SqlDbType.VarChar);
+                        this.sqlCmd.Parameters["@plataforma5"].Value = (string)tbPlataforma5.Text;
+
+                        this.sqlCmd.Parameters.Add("@descricao", System.Data.SqlDbType.VarChar);
+                        this.sqlCmd.Parameters["@descricao"].Value = (string)tbDescricao.Text;
+
+                        this.sqlCmd.Parameters.Add("@usuario", System.Data.SqlDbType.Int);
+                        this.sqlCmd.Parameters["@usuario"].Value = Convert.ToInt32(tbIDUsuario.Text);
+
+                        if(mcbJogou.Checked == true)
+                        {
+                            this.sqlCmd.Parameters.Add("@jogou", System.Data.SqlDbType.Bit);
+                            this.sqlCmd.Parameters["@jogou"].Value = (bool)mcbJogou.Checked;
+                        }
+                        else
+                        {
+                            this.sqlCmd.Parameters.Add("@jogou", System.Data.SqlDbType.Bit);
+                            this.sqlCmd.Parameters["@jogou"].Value = (bool)false;
+                        }
+                        
+                        if(mcbFinalizou.Checked == true)
+                        {
+                            this.sqlCmd.Parameters.Add("@finalizou", System.Data.SqlDbType.Bit);
+                            this.sqlCmd.Parameters["@finalizou"].Value = (bool)mcbFinalizou.Checked;
+                        }
+                        else
+                        {
+                            this.sqlCmd.Parameters.Add("@finalizou", System.Data.SqlDbType.Bit);
+                            this.sqlCmd.Parameters["@finalizou"].Value = (bool)false;
+                        }
+                        
+
+                        this.sqlCmd.Parameters.Add("@ID", System.Data.SqlDbType.Int, 4);
+                        this.sqlCmd.Parameters["@ID"].Value = Convert.ToInt32(tbID.Text);
+                    }
+
+                    if (vetorImagens != null)
+                    {
+                        updateImagemJogo(1);
+                    }
+
+                    int iresultado = this.sqlCmd.ExecuteNonQuery();
+
+                    if (iresultado <= 0)
+                        MessageBox.Show("Falha ao alterar informações no banco de dados.", "Comunicação com o Banco de Dados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        MessageBox.Show("Informações alteradas com sucesso.", "Comunicação com o Banco de Dados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Comunicação com o Banco de Dados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.conexaoSQLServer.Close();
+                }
+                resgatarDadosTabela(conexaoSQLServer);
+            }
+            else if (escolha == "ADICIONAR")
+            {
+                bool erro = verificacaoDeCampos(2);
+
+                if (erro == true)
+                    return;
+
+                try
+                {
+                    this.conexaoSQLServer.Open();
+                    this.sqlCmd = new SqlCommand();
+                    sqlCmd.Connection = conexaoSQLServer;
+                    if (sqlCmd.Parameters.Count == 0)
+                    {
+                        this.sqlCmd.CommandText = "INSERT INTO Game (nome_game, ano_game, media_horas, plataforma1_game, plataforma2_game, plataforma3_game, plataforma4_game, plataforma5_game, descricao_game, fk_usuario, usuario_jogou, usuario_finalizou) VALUES (@nome, @ano, @horas, @plataforma1, @plataforma2, @plataforma3, @plataforma4, @plataforma5, @descricao, @usuario, @jogou, @finalizou)";
+
+                        this.sqlCmd.Parameters.Add("@nome", System.Data.SqlDbType.VarChar);
+                        this.sqlCmd.Parameters["@nome"].Value = (string)tbJogo.Text;
+
+                        this.sqlCmd.Parameters.Add("@ano", System.Data.SqlDbType.Int);
+                        this.sqlCmd.Parameters["@ano"].Value = Convert.ToInt32(tbAno.Text);
+
+                        this.sqlCmd.Parameters.Add("@horas", System.Data.SqlDbType.Int);
+                        this.sqlCmd.Parameters["@horas"].Value = Convert.ToInt32(tbHoras.Text);
+
+                        this.sqlCmd.Parameters.Add("@plataforma1", System.Data.SqlDbType.VarChar);
+                        this.sqlCmd.Parameters["@plataforma1"].Value = (string)tbPlataforma1.Text;
+
+                        this.sqlCmd.Parameters.Add("@plataforma2", System.Data.SqlDbType.VarChar);
+                        this.sqlCmd.Parameters["@plataforma2"].Value = (string)tbPlataforma2.Text;
+
+                        this.sqlCmd.Parameters.Add("@plataforma3", System.Data.SqlDbType.VarChar);
+                        this.sqlCmd.Parameters["@plataforma3"].Value = (string)tbPlataforma3.Text;
+
+                        this.sqlCmd.Parameters.Add("@plataforma4", System.Data.SqlDbType.VarChar);
+                        this.sqlCmd.Parameters["@plataforma4"].Value = (string)tbPlataforma4.Text;
+
+                        this.sqlCmd.Parameters.Add("@plataforma5", System.Data.SqlDbType.VarChar);
+                        this.sqlCmd.Parameters["@plataforma5"].Value = (string)tbPlataforma5.Text;
+
+                        this.sqlCmd.Parameters.Add("@descricao", System.Data.SqlDbType.VarChar);
+                        this.sqlCmd.Parameters["@descricao"].Value = (string)tbDescricao.Text;
+
+                        this.sqlCmd.Parameters.Add("@usuario", System.Data.SqlDbType.Int);
+                        this.sqlCmd.Parameters["@usuario"].Value = Convert.ToInt32(tbIDUsuario.Text);
+
+                        if (mcbJogou.Checked == true)
+                        {
+                            this.sqlCmd.Parameters.Add("@jogou", System.Data.SqlDbType.Bit);
+                            this.sqlCmd.Parameters["@jogou"].Value = (bool)mcbJogou.Checked;
+                        }
+                        else
+                        {
+                            this.sqlCmd.Parameters.Add("@jogou", System.Data.SqlDbType.Bit);
+                            this.sqlCmd.Parameters["@jogou"].Value = (bool)false;
+                        }
+
+                        if (mcbFinalizou.Checked == true)
+                        {
+                            this.sqlCmd.Parameters.Add("@finalizou", System.Data.SqlDbType.Bit);
+                            this.sqlCmd.Parameters["@finalizou"].Value = (bool)mcbFinalizou.Checked;
+                        }
+                        else
+                        {
+                            this.sqlCmd.Parameters.Add("@finalizou", System.Data.SqlDbType.Bit);
+                            this.sqlCmd.Parameters["@finalizou"].Value = (bool)false;
+                        }
+
+                        //this.sqlCmd.Parameters.Add("@ID", System.Data.SqlDbType.Int, 4);
+                        //this.sqlCmd.Parameters["@ID"].Value = Convert.ToInt32(tbID.Text);
+                    }
+
+                    int iresultado = this.sqlCmd.ExecuteNonQuery();
+
+                    if (iresultado <= 0)
+                        MessageBox.Show("Falha ao alterar informações no banco de dados.", "Comunicação com o Banco de Dados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        MessageBox.Show("Informações inseridas com sucesso.", "Comunicação com o Banco de Dados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    if (vetorImagens != null)
+                    {
+                        updateImagemJogo(2);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Comunicação com o Banco de Dados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.conexaoSQLServer.Close();
+                }
+                resgatarDadosTabela(conexaoSQLServer);
+            }
         }
 
         private void resgatarNomeUsuario()
@@ -228,8 +452,16 @@ namespace TrackGames
                     sqlCmd.Connection = conexaoSQLServer;*/
                     this.sqlCmd.CommandText = "UPDATE Game SET capa_game=@imagem WHERE id_game=@ID";
 
-                    this.sqlCmd.Parameters.Add("@imagem", System.Data.SqlDbType.Image);
-                    this.sqlCmd.Parameters["@imagem"].Value = this.vetorImagens;
+                    if (vetorImagens != null)
+                    {
+                        this.sqlCmd.Parameters.Add("@imagem", System.Data.SqlDbType.Image);
+                        this.sqlCmd.Parameters["@imagem"].Value = this.vetorImagens;
+                    }
+                    else
+                    {
+                        this.sqlCmd.Parameters.Add("@imagem", System.Data.SqlDbType.Image);
+                        this.sqlCmd.Parameters["@imagem"].Value = (System.DBNull)DBNull.Value;
+                    }
 
                     int iresultado = Convert.ToInt32(this.sqlCmd.ExecuteNonQuery());
 
@@ -250,8 +482,16 @@ namespace TrackGames
                     sqlCmd.Connection = conexaoSQLServer;*/
                     this.sqlCmd.CommandText = "UPDATE Game SET capa_game=@imagem WHERE nome_game=@nome AND ano_game=@ano AND fk_usuario=@usuario";
 
-                    this.sqlCmd.Parameters.Add("@imagem", System.Data.SqlDbType.Image);
-                    this.sqlCmd.Parameters["@imagem"].Value = this.vetorImagens;
+                    if (vetorImagens != null)
+                    {
+                        this.sqlCmd.Parameters.Add("@imagem", System.Data.SqlDbType.Image);
+                        this.sqlCmd.Parameters["@imagem"].Value = this.vetorImagens;
+                    }
+                    else
+                    {
+                        this.sqlCmd.Parameters.Add("@imagem", System.Data.SqlDbType.Image);
+                        this.sqlCmd.Parameters["@imagem"].Value = (System.DBNull)DBNull.Value;
+                    }
 
                     int iresultado = Convert.ToInt32(this.sqlCmd.ExecuteNonQuery());
 
@@ -265,6 +505,7 @@ namespace TrackGames
             }
         }
 
+        /*
         private void atualizarJogo()
         {
             bool erro = verificacaoDeCampos(1);
@@ -421,7 +662,7 @@ namespace TrackGames
                 this.conexaoSQLServer.Close();
             }
             resgatarDadosTabela(conexaoSQLServer);
-        }
+        }*/
 
         private bool verificacaoDeCampos(int escolha)
         {
@@ -569,23 +810,17 @@ namespace TrackGames
 
         private void mbtnAjuda_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Seção de Ajuda! \n\n-Adicionar um novo jogo:\n\n1. Clique em uma linha vazia\n2. Preencha os campos 'Jogo', 'Ano', 'Duração', 'Jogou', 'Plataformas', 'Finalizou' e 'Descrição'.\n3. Clique em 'Alterar Imagem' para inserir uma imagem da capa do jogo.\n4. Clique em Adicionar.\n\n-Editar um jogo:\n\n1. Clique no jogo que deseja editar.\n2. Altere os campos desejados\n3. Clique em Editar. \n\nSó é possível editar um por vez.\nUse o botão Limpar para limpar os campos.\nUse o botão Excluir para excluir um jogo.", "Ajuda - Editar", MessageBoxButtons.OK,MessageBoxIcon.Information);
-        }
-
-        private void mbtnEditar_Click(object sender, EventArgs e)
-        {
-            atualizarJogo();
-        }
-
-        private void mbtnAdicionar_Click(object sender, EventArgs e)
-        {
-            inserirJogo();
+            MessageBox.Show("Seção de Ajuda! \n\n-Adicionar um novo jogo:\n\n1. Clique em uma linha vazia\n2. Preencha os campos 'Jogo', 'Ano', 'Duração', 'Jogou', 'Plataformas', 'Finalizou' e 'Descrição'.\n3. Clique em 'Alterar Imagem' para inserir uma imagem da capa do jogo.\n4. Clique em Adicionar.\n\n-Editar um jogo:\n\n1. Clique no jogo que deseja editar.\n2. Altere os campos desejados\n3. Clique em Editar. \n\nSó é possível editar um por vez.\nUse o botão Limpar para limpar os campos.\nUse o botão Excluir para excluir um jogo.\n\nPara filtrar os jogos por nome, insira o nome do jogo completo ou parcial no campo 'Pesquisar por Nome' e clique na lupa.\nPara limpar o filtro da pesquisa, clique no botão de limpar localizado ao lado da lupa.\n\nPara sair da edição, apenas feche a janela.", "Ajuda - Editar", MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void mbtnExcluir_Click(object sender, EventArgs e)
         {
-            if(tbID.Text != null || tbID.Text != "")
+            if (tbID.Text == null || tbID.Text == "")
             {
+                return;
+            }
+            else
+            { 
                 DialogResult escolha = MessageBox.Show("Deseja excluir essa linha?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (escolha == DialogResult.Yes)
@@ -625,6 +860,37 @@ namespace TrackGames
                 {
                     resgatarDadosTabela(conexaoSQLServer);
                 }
+            }
+        }
+
+        private void btnAdicionarEditar_Click(object sender, EventArgs e)
+        {
+            editarInserirDados(this.btnAdicionarEditar.Text);
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            pesquisar(conexaoSQLServer);
+        }
+
+        private void btnLimparPesquisa_Click(object sender, EventArgs e)
+        {
+            resgatarDadosTabela(conexaoSQLServer);
+            tbPesquisar.Text = "Pesquisar por Nome";
+            tbPesquisar.ForeColor = Color.Gray;
+        }
+
+        private void tbPesquisar_Click(object sender, EventArgs e)
+        {
+            tbPesquisar.Text = "";
+            tbPesquisar.ForeColor = Color.Black;
+        }
+
+        private void tbPesquisar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                pesquisar(conexaoSQLServer);
             }
         }
     }

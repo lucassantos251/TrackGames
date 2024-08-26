@@ -45,14 +45,20 @@ namespace TrackGames
         }
 
         private void FrmUsuario_Load(object sender, EventArgs e)
-        {
+        { 
             resgatarDadosUsuario();
-            resgatarImagemUsuario();
             atualizarDadosUsuario();
         }
 
         private void resgatarDadosUsuario()
         {
+            horasUsuario = 0;
+            usuarioJogou = 0;
+            usuarioFinalizou = 0;
+
+            tamanhoArquivoImagem = 0;
+            vetorImagens = null;
+
             try
             {
                 SqlCommand cmdSelect = new SqlCommand("SELECT * FROM Usuario WHERE id_usuario=@ID", this.conexaoSQLServer);
@@ -138,6 +144,22 @@ namespace TrackGames
                         {
                             mlblPlataforma5.Text = "";
                         }
+
+                        if (cmdReader["foto_usuario"].GetType().ToString() != "System.DBNull")
+                        {
+                            vetorImagens = (byte[])cmdReader["foto_usuario"];
+                            string strNomeArquivo = Convert.ToString(DateTime.Now.ToFileTime());
+                            FileStream fs = new FileStream(strNomeArquivo, FileMode.CreateNew, FileAccess.Write);
+                            fs.Write(vetorImagens, 0, vetorImagens.Length);
+                            fs.Flush();
+                            fs.Close();
+
+                            pbUsuario.Image = Image.FromFile(strNomeArquivo);
+                        }
+                        else
+                        {
+                            pbUsuario.Image = null;
+                        }
                     }
                 }
             }
@@ -152,7 +174,7 @@ namespace TrackGames
             
         }
 
-        private void resgatarImagemUsuario()
+        /*private void resgatarImagemUsuario()
         {
             try
             {
@@ -187,7 +209,7 @@ namespace TrackGames
             {
                 this.conexaoSQLServer.Close();
             }
-        }
+        }*/
 
         /*private void alterarImagemUsuario()
         {
@@ -334,6 +356,12 @@ namespace TrackGames
             this.Hide();
             FrmEditarUsuario frmEditarUsuario = new FrmEditarUsuario(idUsuario, this);
             frmEditarUsuario.Show();
+        }
+
+        private void FrmUsuario_Activated(object sender, EventArgs e)
+        {
+            resgatarDadosUsuario();
+            atualizarDadosUsuario();
         }
     }
 }

@@ -110,6 +110,22 @@ namespace TrackGames
                         {
                             tbPlataforma5.Text = "";
                         }
+
+                        if (cmdReader["foto_usuario"].GetType().ToString() != "System.DBNull")
+                        {
+                            vetorImagens = (byte[])cmdReader["foto_usuario"];
+                            string strNomeArquivo = Convert.ToString(DateTime.Now.ToFileTime());
+                            FileStream fs = new FileStream(strNomeArquivo, FileMode.CreateNew, FileAccess.Write);
+                            fs.Write(vetorImagens, 0, vetorImagens.Length);
+                            fs.Flush();
+                            fs.Close();
+
+                            pbUsuario.Image = Image.FromFile(strNomeArquivo);
+                        }
+                        else
+                        {
+                            pbUsuario.Image = null;
+                        }
                     }
                 }
             }
@@ -220,8 +236,17 @@ namespace TrackGames
                 this.sqlCmd.Parameters.Add("@senha", System.Data.SqlDbType.VarChar);
                 this.sqlCmd.Parameters["@senha"].Value = (string)tbSenha.Text;
 
-                this.sqlCmd.Parameters.Add("@imagem", System.Data.SqlDbType.Image);
-                this.sqlCmd.Parameters["@imagem"].Value = this.vetorImagens;
+                if(vetorImagens != null)
+                {
+                    this.sqlCmd.Parameters.Add("@imagem", System.Data.SqlDbType.Image);
+                    this.sqlCmd.Parameters["@imagem"].Value = this.vetorImagens;
+                }
+                else
+                {
+                    this.sqlCmd.Parameters.Add("@imagem", System.Data.SqlDbType.Image);
+                    this.sqlCmd.Parameters["@imagem"].Value = (System.DBNull)DBNull.Value;
+                }
+                
 
                 this.sqlCmd.Parameters.Add("@plataforma1", System.Data.SqlDbType.VarChar);
                 this.sqlCmd.Parameters["@plataforma1"].Value = (string)tbPlataforma1.Text;
@@ -273,10 +298,10 @@ namespace TrackGames
                 int iresultado = this.sqlCmd.ExecuteNonQuery();
 
                 if (iresultado <= 0)
-                    MessageBox.Show("Falha ao criar usuário no banco de dados.");
+                    MessageBox.Show("Falha ao editar usuário no banco de dados.");
                 else
                 {
-                    MessageBox.Show("Usuário criado com Sucesso", "OK", MessageBoxButtons.OK);
+                    MessageBox.Show("Informações editadas com sucesso.", "OK", MessageBoxButtons.OK);
                     this.Hide();
                     frmUsuario.Show();
                     this.Close();

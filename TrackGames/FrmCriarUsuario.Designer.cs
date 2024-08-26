@@ -213,6 +213,7 @@
             // 
             this.btnImagem.AutoSize = true;
             this.btnImagem.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnImagem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnImagem.Depth = 0;
             this.btnImagem.Icon = null;
             this.btnImagem.Location = new System.Drawing.Point(151, 232);
@@ -230,6 +231,7 @@
             // 
             this.btnConfirmar.AutoSize = true;
             this.btnConfirmar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConfirmar.Depth = 0;
             this.btnConfirmar.Icon = null;
             this.btnConfirmar.Location = new System.Drawing.Point(339, 552);
@@ -246,6 +248,7 @@
             // 
             this.btnLimpar.AutoSize = true;
             this.btnLimpar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLimpar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpar.Depth = 0;
             this.btnLimpar.Icon = null;
             this.btnLimpar.Location = new System.Drawing.Point(262, 552);
@@ -262,6 +265,7 @@
             // 
             this.btnCancelar.AutoSize = true;
             this.btnCancelar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.Depth = 0;
             this.btnCancelar.Icon = null;
             this.btnCancelar.Location = new System.Drawing.Point(165, 552);
@@ -277,6 +281,7 @@
             // btnFechar
             // 
             this.btnFechar.BackColor = System.Drawing.Color.Transparent;
+            this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFechar.FlatAppearance.BorderSize = 0;
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Location = new System.Drawing.Point(417, 0);
@@ -295,6 +300,7 @@
             this.btnSenha.BackColor = System.Drawing.Color.Transparent;
             this.btnSenha.BackgroundImage = global::TrackGames.Properties.Resources.olho;
             this.btnSenha.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSenha.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSenha.FlatAppearance.BorderSize = 0;
             this.btnSenha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSenha.Location = new System.Drawing.Point(324, 319);

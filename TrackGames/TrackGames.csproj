@@ -148,5 +148,35 @@
   <ItemGroup>
     <None Include="Resources\olho.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atualizar32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sair32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pesquisar32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\limpar32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

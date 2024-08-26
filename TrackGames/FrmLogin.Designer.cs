@@ -88,6 +88,7 @@
             // 
             this.mbtnLogin.AutoSize = true;
             this.mbtnLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mbtnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mbtnLogin.Depth = 0;
             this.mbtnLogin.Icon = null;
             this.mbtnLogin.Location = new System.Drawing.Point(170, 180);
@@ -103,6 +104,7 @@
             // btnCriarUsuario
             // 
             this.btnCriarUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.btnCriarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCriarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCriarUsuario.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCriarUsuario.Location = new System.Drawing.Point(306, 215);

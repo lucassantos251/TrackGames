@@ -133,7 +133,6 @@ namespace TrackGames
         {
             FrmEditar frmEditar = new FrmEditar(idUsuario, this);
             frmEditar.Show();
-            this.Hide();
         }
     }
 }
