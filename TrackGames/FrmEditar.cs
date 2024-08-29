@@ -21,7 +21,7 @@ namespace TrackGames
         #region Variaveis
         private SqlConnection conexaoSQLServer;
         SqlCommand sqlCmd = default(SqlCommand);
-        private string conexaoSQL = @"Data Source=CELESTIA\SQLEXPRESS;Initial Catalog = GameTracker; Integrated Security = True;";
+        private string conexaoSQL = StringDB.GetDB();
 
         private int idUsuario = 0;
         private FrmPrincipal frmPrincipal;
@@ -810,7 +810,7 @@ namespace TrackGames
 
         private void mbtnAjuda_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Seção de Ajuda! \n\n-Adicionar um novo jogo:\n\n1. Clique em uma linha vazia\n2. Preencha os campos 'Jogo', 'Ano', 'Duração', 'Jogou', 'Plataformas', 'Finalizou' e 'Descrição'.\n3. Clique em 'Alterar Imagem' para inserir uma imagem da capa do jogo.\n4. Clique em Adicionar.\n\n-Editar um jogo:\n\n1. Clique no jogo que deseja editar.\n2. Altere os campos desejados\n3. Clique em Editar. \n\nSó é possível editar um por vez.\nUse o botão Limpar para limpar os campos.\nUse o botão Excluir para excluir um jogo.\n\nPara filtrar os jogos por nome, insira o nome do jogo completo ou parcial no campo 'Pesquisar por Nome' e clique na lupa.\nPara limpar o filtro da pesquisa, clique no botão de limpar localizado ao lado da lupa.\n\nPara sair da edição, apenas feche a janela.", "Ajuda - Editar", MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Seção de Ajuda! \n\n-Adicionar um novo jogo:\n\n1. Clique em uma linha vazia\n2. Preencha os campos 'Jogo', 'Ano', 'Duração', 'Jogou', 'Plataformas', 'Finalizou' e 'Descrição'.\n3. Clique em 'Alterar Imagem' para inserir uma imagem da capa do jogo.\n4. Clique em Adicionar.\n\n-Editar um jogo:\n\n1. Clique no jogo que deseja editar.\n2. Altere os campos desejados\n3. Clique em Editar. \n\nSó é possível editar um por vez.\nO formato dos arquivos de imagem precisam ser '.jpg' ou '.jpeg'\nUse o botão Limpar para limpar os campos.\nUse o botão Excluir para excluir um jogo.\n\nPara filtrar os jogos por nome, insira o nome do jogo completo ou parcial no campo 'Pesquisar por Nome' e clique na lupa.\nPara limpar o filtro da pesquisa, clique no botão de limpar localizado ao lado da lupa.\n\nPara sair da edição, apenas feche a janela.", "Ajuda - Editar", MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void mbtnExcluir_Click(object sender, EventArgs e)

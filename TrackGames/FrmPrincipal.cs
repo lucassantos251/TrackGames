@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace TrackGames
 {
@@ -19,7 +20,7 @@ namespace TrackGames
         #region Variaveis
         private SqlConnection conexaoSQLServer;
         SqlCommand sqlCmd = default(SqlCommand);
-        private string conexaoSQL = @"Data Source=CELESTIA\SQLEXPRESS;Initial Catalog = GameTracker; Integrated Security = True;";
+        private string conexaoSQL = StringDB.GetDB();
 
         private int idUsuario = 0;
         #endregion
@@ -46,12 +47,48 @@ namespace TrackGames
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'gameTrackerDataSet.Game'. Você pode movê-la ou removê-la conforme necessário.
-            RecarregarDGV();
-
             conexaoSQLServer = new SqlConnection(conexaoSQL);
+            RecarregarDGV();
+            //resgatarDadosTabela(conexaoSQLServer);
             ResgatarDadosUsuario(conexaoSQLServer);
         }
+
+        /*private void resgatarDadosTabela(SqlConnection conexaoSQLServer)
+        {
+            try
+            {
+                SqlDataAdapter ADAP = new SqlDataAdapter("SELECT nome_game, media_horas, ano_game, plataforma1_game, plataforma2_game, plataforma3_game, plataforma4_game, plataforma5_game, usuario_jogou, usuario_finalizou, descricao_game FROM Game WHERE fk_usuario=@ID", conexaoSQLServer);
+                ADAP.SelectCommand.Parameters.AddWithValue("@ID", idUsuario);
+                DataSet DS = new DataSet();
+                ADAP.Fill(DS, "Game");
+                dgvPrincipal.DataSource = DS.Tables["Game"];
+
+                dgvPrincipal.Columns[0].HeaderText = "Game";
+                dgvPrincipal.Columns[1].HeaderText = "Horas";
+                dgvPrincipal.Columns[2].HeaderText = "Ano";
+                dgvPrincipal.Columns[3].HeaderText = "Plataforma";
+                dgvPrincipal.Columns[4].HeaderText = "Plataforma";
+                dgvPrincipal.Columns[5].HeaderText = "Plataforma";
+                dgvPrincipal.Columns[6].Visible = false;
+                dgvPrincipal.Columns[7].Visible = false;
+                dgvPrincipal.Columns[8].HeaderText = "Jogou";
+                dgvPrincipal.Columns[9].HeaderText = "Finalizou";
+                dgvPrincipal.Columns[10].Visible = false;
+
+
+
+                dgvPrincipal.Sort(this.dgvPrincipal.Columns[1], ListSortDirection.Ascending);
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Comunicação com o Banco de Dados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.conexaoSQLServer.Close();
+            }
+        }*/
 
         private void ResgatarDadosUsuario(SqlConnection conexaoSQLServer)
         {
@@ -105,13 +142,44 @@ namespace TrackGames
             dgvPrincipal.Sort(this.dgvPrincipal.Columns[1], ListSortDirection.Ascending);
         }
 
-        private void btnFechar_Click(object sender, EventArgs e)
+        /*private void dgvPrincipal_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                mlblNomeValor.Text = (string)dgvPrincipal.Rows[e.RowIndex].Cells["Game"].Value.ToString();
+                mlblAnoValor.Text = (string)dgvPrincipal.Rows[e.RowIndex].Cells["Ano"].Value.ToString();
+                mlblDuracaoValor.Text = (string)dgvPrincipal.Rows[e.RowIndex].Cells["Horas"].Value.ToString();
+                mlblPlataformaValor1.Text = (string)dgvPrincipal.Rows[e.RowIndex].Cells["Plataforma"].Value.ToString();
+                mlblPlataformaValor2.Text = (string)dgvPrincipal.Rows[e.RowIndex].Cells["Plataforma"].Value.ToString();
+                mlblPlataformaValor3.Text = (string)dgvPrincipal.Rows[e.RowIndex].Cells["Plataforma"].Value.ToString();
+                mlblPlataformaValor4.Text = (string)dgvPrincipal.Rows[e.RowIndex].Cells["Plataforma"].Value.ToString();
+                mlblPlataformaValor5.Text = (string)dgvPrincipal.Rows[e.RowIndex].Cells["Plataforma"].Value.ToString();
+                mlblDescricaoValor.Text = (string)dgvPrincipal.Rows[e.RowIndex].Cells["Descrição"].Value.ToString();
+
+                if (dgvPrincipal.Rows[e.RowIndex].Cells["usuario_jogou"].Value.ToString() == "False")
+                    mcbJogou.Checked = false;
+                else
+                    mcbJogou.Checked = true;
+
+                if (dgvPrincipal.Rows[e.RowIndex].Cells["usuario_finalizou"].Value.ToString() == "False")
+                    mcbFinalizou.Checked = false;
+                else
+                    mcbFinalizou.Checked = true;
+            }
+            catch
+            {
+                return;
+            }
+        }*/
+
+            private void btnFechar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
+            //resgatarDadosTabela(this.conexaoSQLServer);
             RecarregarDGV();
             ResgatarDadosUsuario(this.conexaoSQLServer);
         }

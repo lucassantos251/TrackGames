@@ -18,7 +18,7 @@ namespace TrackGames
         #region Variaveis
         private SqlConnection conexaoSQLServer;
         SqlCommand sqlCmd = default(SqlCommand);
-        private string conexaoSQL = @"Data Source=CELESTIA\SQLEXPRESS;Initial Catalog = GameTracker; Integrated Security = True;";
+        private string conexaoSQL = StringDB.GetDB();
 
         private int idUsuario = 0;
         #endregion
@@ -121,6 +121,12 @@ namespace TrackGames
             this.Hide();
             FrmCriarUsuario frmCriarUsuario = new FrmCriarUsuario(this);
             frmCriarUsuario.Show();
+        }
+
+        private void btnBD_Click(object sender, EventArgs e)
+        {
+            FrmBD frmBD = new FrmBD();
+            frmBD.Show();
         }
     }
 }

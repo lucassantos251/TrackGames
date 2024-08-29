@@ -34,20 +34,6 @@
             this.gameTrackerDataSet = new TrackGames.GameTrackerDataSet();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvPrincipal = new System.Windows.Forms.DataGridView();
-            this.idgameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomegameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.anogameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mediahorasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plataforma1gameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plataforma2gameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plataforma3gameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plataforma4gameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plataforma5gameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fkusuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuariojogouDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.usuariofinalizouDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.descricaogameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.capagameDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnFechar = new System.Windows.Forms.Button();
             this.gameTableAdapter = new TrackGames.GameTrackerDataSetTableAdapters.GameTableAdapter();
             this.mlblNomeValor = new MaterialSkin.Controls.MaterialLabel();
@@ -74,6 +60,20 @@
             this.pbUsuario = new System.Windows.Forms.PictureBox();
             this.pbJogo = new System.Windows.Forms.PictureBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.idgameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomegameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.anogameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mediahorasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plataforma1gameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plataforma2gameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plataforma3gameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plataforma4gameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plataforma5gameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fkusuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuariojogouDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.usuariofinalizouDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.descricaogameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.capagameDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gameBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameTrackerDataSet)).BeginInit();
             this.panel3.SuspendLayout();
@@ -130,118 +130,12 @@
             this.dgvPrincipal.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPrincipal.Location = new System.Drawing.Point(0, 0);
             this.dgvPrincipal.Name = "dgvPrincipal";
+            this.dgvPrincipal.ReadOnly = true;
             this.dgvPrincipal.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvPrincipal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPrincipal.ShowEditingIcon = false;
             this.dgvPrincipal.Size = new System.Drawing.Size(961, 248);
             this.dgvPrincipal.TabIndex = 0;
-            // 
-            // idgameDataGridViewTextBoxColumn
-            // 
-            this.idgameDataGridViewTextBoxColumn.DataPropertyName = "id_game";
-            this.idgameDataGridViewTextBoxColumn.HeaderText = "id_game";
-            this.idgameDataGridViewTextBoxColumn.Name = "idgameDataGridViewTextBoxColumn";
-            this.idgameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idgameDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nomegameDataGridViewTextBoxColumn
-            // 
-            this.nomegameDataGridViewTextBoxColumn.DataPropertyName = "nome_game";
-            this.nomegameDataGridViewTextBoxColumn.FillWeight = 200F;
-            this.nomegameDataGridViewTextBoxColumn.HeaderText = "Game";
-            this.nomegameDataGridViewTextBoxColumn.MinimumWidth = 150;
-            this.nomegameDataGridViewTextBoxColumn.Name = "nomegameDataGridViewTextBoxColumn";
-            // 
-            // anogameDataGridViewTextBoxColumn
-            // 
-            this.anogameDataGridViewTextBoxColumn.DataPropertyName = "ano_game";
-            this.anogameDataGridViewTextBoxColumn.FillWeight = 30.30457F;
-            this.anogameDataGridViewTextBoxColumn.HeaderText = "Ano";
-            this.anogameDataGridViewTextBoxColumn.MinimumWidth = 35;
-            this.anogameDataGridViewTextBoxColumn.Name = "anogameDataGridViewTextBoxColumn";
-            // 
-            // mediahorasDataGridViewTextBoxColumn
-            // 
-            this.mediahorasDataGridViewTextBoxColumn.DataPropertyName = "media_horas";
-            this.mediahorasDataGridViewTextBoxColumn.FillWeight = 25F;
-            this.mediahorasDataGridViewTextBoxColumn.HeaderText = "Horas";
-            this.mediahorasDataGridViewTextBoxColumn.MinimumWidth = 25;
-            this.mediahorasDataGridViewTextBoxColumn.Name = "mediahorasDataGridViewTextBoxColumn";
-            // 
-            // plataforma1gameDataGridViewTextBoxColumn
-            // 
-            this.plataforma1gameDataGridViewTextBoxColumn.DataPropertyName = "plataforma1_game";
-            this.plataforma1gameDataGridViewTextBoxColumn.FillWeight = 75F;
-            this.plataforma1gameDataGridViewTextBoxColumn.HeaderText = "Plataforma";
-            this.plataforma1gameDataGridViewTextBoxColumn.MinimumWidth = 75;
-            this.plataforma1gameDataGridViewTextBoxColumn.Name = "plataforma1gameDataGridViewTextBoxColumn";
-            // 
-            // plataforma2gameDataGridViewTextBoxColumn
-            // 
-            this.plataforma2gameDataGridViewTextBoxColumn.DataPropertyName = "plataforma2_game";
-            this.plataforma2gameDataGridViewTextBoxColumn.FillWeight = 75F;
-            this.plataforma2gameDataGridViewTextBoxColumn.HeaderText = "Plataforma";
-            this.plataforma2gameDataGridViewTextBoxColumn.MinimumWidth = 75;
-            this.plataforma2gameDataGridViewTextBoxColumn.Name = "plataforma2gameDataGridViewTextBoxColumn";
-            // 
-            // plataforma3gameDataGridViewTextBoxColumn
-            // 
-            this.plataforma3gameDataGridViewTextBoxColumn.DataPropertyName = "plataforma3_game";
-            this.plataforma3gameDataGridViewTextBoxColumn.FillWeight = 75F;
-            this.plataforma3gameDataGridViewTextBoxColumn.HeaderText = "Plataforma";
-            this.plataforma3gameDataGridViewTextBoxColumn.MinimumWidth = 75;
-            this.plataforma3gameDataGridViewTextBoxColumn.Name = "plataforma3gameDataGridViewTextBoxColumn";
-            // 
-            // plataforma4gameDataGridViewTextBoxColumn
-            // 
-            this.plataforma4gameDataGridViewTextBoxColumn.DataPropertyName = "plataforma4_game";
-            this.plataforma4gameDataGridViewTextBoxColumn.HeaderText = "plataforma4_game";
-            this.plataforma4gameDataGridViewTextBoxColumn.Name = "plataforma4gameDataGridViewTextBoxColumn";
-            this.plataforma4gameDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // plataforma5gameDataGridViewTextBoxColumn
-            // 
-            this.plataforma5gameDataGridViewTextBoxColumn.DataPropertyName = "plataforma5_game";
-            this.plataforma5gameDataGridViewTextBoxColumn.HeaderText = "plataforma5_game";
-            this.plataforma5gameDataGridViewTextBoxColumn.Name = "plataforma5gameDataGridViewTextBoxColumn";
-            this.plataforma5gameDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // fkusuarioDataGridViewTextBoxColumn
-            // 
-            this.fkusuarioDataGridViewTextBoxColumn.DataPropertyName = "fk_usuario";
-            this.fkusuarioDataGridViewTextBoxColumn.HeaderText = "fk_usuario";
-            this.fkusuarioDataGridViewTextBoxColumn.Name = "fkusuarioDataGridViewTextBoxColumn";
-            this.fkusuarioDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // usuariojogouDataGridViewCheckBoxColumn
-            // 
-            this.usuariojogouDataGridViewCheckBoxColumn.DataPropertyName = "usuario_jogou";
-            this.usuariojogouDataGridViewCheckBoxColumn.FillWeight = 20.30457F;
-            this.usuariojogouDataGridViewCheckBoxColumn.HeaderText = "Jogou";
-            this.usuariojogouDataGridViewCheckBoxColumn.MinimumWidth = 25;
-            this.usuariojogouDataGridViewCheckBoxColumn.Name = "usuariojogouDataGridViewCheckBoxColumn";
-            // 
-            // usuariofinalizouDataGridViewCheckBoxColumn
-            // 
-            this.usuariofinalizouDataGridViewCheckBoxColumn.DataPropertyName = "usuario_finalizou";
-            this.usuariofinalizouDataGridViewCheckBoxColumn.FillWeight = 20.30457F;
-            this.usuariofinalizouDataGridViewCheckBoxColumn.HeaderText = "Finalizou";
-            this.usuariofinalizouDataGridViewCheckBoxColumn.MinimumWidth = 25;
-            this.usuariofinalizouDataGridViewCheckBoxColumn.Name = "usuariofinalizouDataGridViewCheckBoxColumn";
-            // 
-            // descricaogameDataGridViewTextBoxColumn
-            // 
-            this.descricaogameDataGridViewTextBoxColumn.DataPropertyName = "descricao_game";
-            this.descricaogameDataGridViewTextBoxColumn.HeaderText = "descricao_game";
-            this.descricaogameDataGridViewTextBoxColumn.Name = "descricaogameDataGridViewTextBoxColumn";
-            this.descricaogameDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // capagameDataGridViewImageColumn
-            // 
-            this.capagameDataGridViewImageColumn.DataPropertyName = "capa_game";
-            this.capagameDataGridViewImageColumn.HeaderText = "capa_game";
-            this.capagameDataGridViewImageColumn.Name = "capagameDataGridViewImageColumn";
-            this.capagameDataGridViewImageColumn.Visible = false;
             // 
             // btnFechar
             // 
@@ -599,6 +493,119 @@
             this.pbJogo.TabIndex = 0;
             this.pbJogo.TabStop = false;
             // 
+            // idgameDataGridViewTextBoxColumn
+            // 
+            this.idgameDataGridViewTextBoxColumn.DataPropertyName = "id_game";
+            this.idgameDataGridViewTextBoxColumn.HeaderText = "id_game";
+            this.idgameDataGridViewTextBoxColumn.Name = "idgameDataGridViewTextBoxColumn";
+            this.idgameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idgameDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nomegameDataGridViewTextBoxColumn
+            // 
+            this.nomegameDataGridViewTextBoxColumn.DataPropertyName = "nome_game";
+            this.nomegameDataGridViewTextBoxColumn.FillWeight = 93.44457F;
+            this.nomegameDataGridViewTextBoxColumn.HeaderText = "Jogo";
+            this.nomegameDataGridViewTextBoxColumn.MinimumWidth = 115;
+            this.nomegameDataGridViewTextBoxColumn.Name = "nomegameDataGridViewTextBoxColumn";
+            this.nomegameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // anogameDataGridViewTextBoxColumn
+            // 
+            this.anogameDataGridViewTextBoxColumn.DataPropertyName = "ano_game";
+            this.anogameDataGridViewTextBoxColumn.FillWeight = 25F;
+            this.anogameDataGridViewTextBoxColumn.HeaderText = "Ano";
+            this.anogameDataGridViewTextBoxColumn.Name = "anogameDataGridViewTextBoxColumn";
+            this.anogameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mediahorasDataGridViewTextBoxColumn
+            // 
+            this.mediahorasDataGridViewTextBoxColumn.DataPropertyName = "media_horas";
+            this.mediahorasDataGridViewTextBoxColumn.FillWeight = 25F;
+            this.mediahorasDataGridViewTextBoxColumn.HeaderText = "Horas";
+            this.mediahorasDataGridViewTextBoxColumn.Name = "mediahorasDataGridViewTextBoxColumn";
+            this.mediahorasDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // plataforma1gameDataGridViewTextBoxColumn
+            // 
+            this.plataforma1gameDataGridViewTextBoxColumn.DataPropertyName = "plataforma1_game";
+            this.plataforma1gameDataGridViewTextBoxColumn.FillWeight = 93.44457F;
+            this.plataforma1gameDataGridViewTextBoxColumn.HeaderText = "Plataforma";
+            this.plataforma1gameDataGridViewTextBoxColumn.Name = "plataforma1gameDataGridViewTextBoxColumn";
+            this.plataforma1gameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // plataforma2gameDataGridViewTextBoxColumn
+            // 
+            this.plataforma2gameDataGridViewTextBoxColumn.DataPropertyName = "plataforma2_game";
+            this.plataforma2gameDataGridViewTextBoxColumn.FillWeight = 93.44457F;
+            this.plataforma2gameDataGridViewTextBoxColumn.HeaderText = "Plataforma";
+            this.plataforma2gameDataGridViewTextBoxColumn.Name = "plataforma2gameDataGridViewTextBoxColumn";
+            this.plataforma2gameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // plataforma3gameDataGridViewTextBoxColumn
+            // 
+            this.plataforma3gameDataGridViewTextBoxColumn.DataPropertyName = "plataforma3_game";
+            this.plataforma3gameDataGridViewTextBoxColumn.FillWeight = 93.44457F;
+            this.plataforma3gameDataGridViewTextBoxColumn.HeaderText = "Plataforma";
+            this.plataforma3gameDataGridViewTextBoxColumn.Name = "plataforma3gameDataGridViewTextBoxColumn";
+            this.plataforma3gameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // plataforma4gameDataGridViewTextBoxColumn
+            // 
+            this.plataforma4gameDataGridViewTextBoxColumn.DataPropertyName = "plataforma4_game";
+            this.plataforma4gameDataGridViewTextBoxColumn.HeaderText = "plataforma4_game";
+            this.plataforma4gameDataGridViewTextBoxColumn.Name = "plataforma4gameDataGridViewTextBoxColumn";
+            this.plataforma4gameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.plataforma4gameDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // plataforma5gameDataGridViewTextBoxColumn
+            // 
+            this.plataforma5gameDataGridViewTextBoxColumn.DataPropertyName = "plataforma5_game";
+            this.plataforma5gameDataGridViewTextBoxColumn.HeaderText = "plataforma5_game";
+            this.plataforma5gameDataGridViewTextBoxColumn.Name = "plataforma5gameDataGridViewTextBoxColumn";
+            this.plataforma5gameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.plataforma5gameDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // fkusuarioDataGridViewTextBoxColumn
+            // 
+            this.fkusuarioDataGridViewTextBoxColumn.DataPropertyName = "fk_usuario";
+            this.fkusuarioDataGridViewTextBoxColumn.HeaderText = "fk_usuario";
+            this.fkusuarioDataGridViewTextBoxColumn.Name = "fkusuarioDataGridViewTextBoxColumn";
+            this.fkusuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fkusuarioDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // usuariojogouDataGridViewCheckBoxColumn
+            // 
+            this.usuariojogouDataGridViewCheckBoxColumn.DataPropertyName = "usuario_jogou";
+            this.usuariojogouDataGridViewCheckBoxColumn.FillWeight = 25F;
+            this.usuariojogouDataGridViewCheckBoxColumn.HeaderText = "Jogou";
+            this.usuariojogouDataGridViewCheckBoxColumn.Name = "usuariojogouDataGridViewCheckBoxColumn";
+            this.usuariojogouDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // usuariofinalizouDataGridViewCheckBoxColumn
+            // 
+            this.usuariofinalizouDataGridViewCheckBoxColumn.DataPropertyName = "usuario_finalizou";
+            this.usuariofinalizouDataGridViewCheckBoxColumn.FillWeight = 25F;
+            this.usuariofinalizouDataGridViewCheckBoxColumn.HeaderText = "Finalizou";
+            this.usuariofinalizouDataGridViewCheckBoxColumn.Name = "usuariofinalizouDataGridViewCheckBoxColumn";
+            this.usuariofinalizouDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // descricaogameDataGridViewTextBoxColumn
+            // 
+            this.descricaogameDataGridViewTextBoxColumn.DataPropertyName = "descricao_game";
+            this.descricaogameDataGridViewTextBoxColumn.HeaderText = "descricao_game";
+            this.descricaogameDataGridViewTextBoxColumn.Name = "descricaogameDataGridViewTextBoxColumn";
+            this.descricaogameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descricaogameDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // capagameDataGridViewImageColumn
+            // 
+            this.capagameDataGridViewImageColumn.DataPropertyName = "capa_game";
+            this.capagameDataGridViewImageColumn.HeaderText = "capa_game";
+            this.capagameDataGridViewImageColumn.Name = "capagameDataGridViewImageColumn";
+            this.capagameDataGridViewImageColumn.ReadOnly = true;
+            this.capagameDataGridViewImageColumn.Visible = false;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -656,20 +663,6 @@
         private GameTrackerDataSet gameTrackerDataSet;
         private System.Windows.Forms.BindingSource gameBindingSource;
         private GameTrackerDataSetTableAdapters.GameTableAdapter gameTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idgameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomegameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn anogameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mediahorasDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn plataforma1gameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn plataforma2gameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn plataforma3gameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn plataforma4gameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn plataforma5gameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fkusuarioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn usuariojogouDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn usuariofinalizouDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descricaogameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn capagameDataGridViewImageColumn;
         private System.Windows.Forms.PictureBox pbJogo;
         private MaterialSkin.Controls.MaterialLabel mlblNomeValor;
         private MaterialSkin.Controls.MaterialLabel mlblAnoValor;
@@ -693,5 +686,19 @@
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idgameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomegameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn anogameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mediahorasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn plataforma1gameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn plataforma2gameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn plataforma3gameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn plataforma4gameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn plataforma5gameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fkusuarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn usuariojogouDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn usuariofinalizouDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricaogameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn capagameDataGridViewImageColumn;
     }
 }

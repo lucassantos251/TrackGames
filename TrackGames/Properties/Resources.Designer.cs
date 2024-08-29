@@ -103,6 +103,16 @@ namespace TrackGames.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap game_console {
+            get {
+                object obj = ResourceManager.GetObject("game-console", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap limpar32 {
             get {
                 object obj = ResourceManager.GetObject("limpar32", resourceCulture);

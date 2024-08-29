@@ -304,6 +304,7 @@
             // fdImagem
             // 
             this.fdImagem.FileName = "fdImagem";
+            this.fdImagem.Filter = "\"JPEG files (*.jpeg;*.jpg)|*.jpeg;*.jpg|All files (*.*)|*.*\"";
             // 
             // tbIDUsuario
             // 

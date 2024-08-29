@@ -19,7 +19,7 @@ namespace TrackGames
         #region Variaveis
         private SqlConnection conexaoSQLServer;
         SqlCommand sqlCmd = default(SqlCommand);
-        private string conexaoSQL = @"Data Source=CELESTIA\SQLEXPRESS;Initial Catalog = GameTracker; Integrated Security = True;";
+        private string conexaoSQL = StringDB.GetDB();
         FrmLogin frmLogin;
 
         private long tamanhoArquivoImagem = 0;
